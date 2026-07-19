@@ -35,11 +35,12 @@ class Solution {
                 total += curr;
             }
 
-            // Update previous value for the next iteration
+            // Update previous value for the next loop
+            
             prev = curr;
         }
 
-        // Return the final integer
+        // final integer
         return total;
     }
 }
