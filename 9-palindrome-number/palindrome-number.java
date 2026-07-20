@@ -12,12 +12,12 @@ class Solution {
 
         // Reverse the number
         while (temp != 0) {
+            int digit=temp%10; //gives the last digit
+            
+            rev = (rev * 10) +digit ; // Take the last digit of temp and add it to rev
 
-            // Take the last digit of temp and add it to rev
-            rev = (rev * 10) + (temp % 10);
-
-            // Remove the last digit from temp after adding it with rev
             temp = temp / 10;
+            // Remove the last digit from temp after adding it with rev
         }
 
         return (num == rev);
