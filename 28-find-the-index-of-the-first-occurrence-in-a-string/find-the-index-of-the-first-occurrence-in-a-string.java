@@ -8,8 +8,9 @@ class Solution {
 
             if (haystack.charAt(i) == needle.charAt(0)) {
 
-               // Get a substring of haystack with the same length as needle
+              
                 if (haystack.substring(i, i + needle.length()).equals(needle))
+                //substring string length of the size of needle to check the needle and substring  by word without letters
                 {
 
 
