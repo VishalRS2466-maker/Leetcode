@@ -13,9 +13,10 @@ class Solution {
          ListNode add=new ListNode(0);
         ListNode curr=add;
         int carry=0;
+        int sum=0;
         while(l1 != null || l2 !=null || carry!=0)
         {   
-            int sum=carry;//carry from the previous sum is added to sum
+             sum=carry;//carry from the previous sum is added to sum
            if(l1 != null)
            {
             sum+=l1.val;
