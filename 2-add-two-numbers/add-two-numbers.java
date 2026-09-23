@@ -15,8 +15,8 @@ class Solution {
         int carry=0;
         while(l1 != null || l2 !=null || carry!=0)
         {   
-            int sum=carry;
-            int digit = sum % 10;
+            int sum=carry;//if sum of values is double digit
+          
            if(l1 != null)
            {
             sum+=l1.val;
