@@ -1,27 +1,24 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+        if (s.length() % 2 != 0) return false;
 
-        String open = "([{";
-        
-        for (int i = 0; i < s.length(); i++) {
-            if (open.indexOf(s.charAt(i)) != -1) {
-                stack.push(s.charAt(i));
-            }
-            else {
-                if (stack.empty()) {
-                    return false;
-                }
-                if ((stack.peek() == '(' && s.charAt(i) == ')') ||
-                (stack.peek() == '[' && s.charAt(i) == ']') ||
-                (stack.peek() == '{' && s.charAt(i) == '}')) {
-                    stack.pop();
-                }
-                else {
+        char[] stack = new char[s.length()];
+        int head = 0;
+
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                stack[head++] = ')';
+            } else if (c == '{') {
+                stack[head++] = '}';
+            } else if (c == '[') {
+                stack[head++] = ']';
+            } else {
+                if (head == 0 || stack[--head] != c) {
                     return false;
                 }
             }
         }
-        return stack.empty();
+
+        return head == 0;
     }
 }
