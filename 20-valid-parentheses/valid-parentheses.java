@@ -1,25 +1,37 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+
+        // Create a stack to store opening brackets
+        Deque<Character> stack = new ArrayDeque<>();
+
         for (char ch : s.toCharArray()) {
-            //checking for opening brackets and pushing them
+
+            // Check for opening brackets and push them
             if (ch == '(' || ch == '[' || ch == '{') {
                 stack.push(ch);
-            } 
-            //checking end brackets or closing brackets
+            }
+
+            // Check for closing brackets
             else {
+
+                // No opening bracket to match
                 if (stack.isEmpty()) {
                     return false;
                 }
+
+                // Remove the top opening bracket
                 char top = stack.pop();
-                if (ch == ')' && top != '(' ||
-                    ch == ']' && top != '[' ||
-                    ch == '}' && top != '{') {
+
+                // Check whether brackets match
+                if ((ch == ')' && top != '(') ||
+                    (ch == ']' && top != '[') ||
+                    (ch == '}' && top != '{')) {
                     return false;
                 }
-               
             }
         }
+
+        // All opening brackets must have been matched
         return stack.isEmpty();
     }
 }
